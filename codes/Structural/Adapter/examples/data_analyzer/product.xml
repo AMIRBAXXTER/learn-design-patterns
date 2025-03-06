@@ -1,0 +1,15 @@
+<product>
+
+    <name>
+        Product2
+    </name>
+
+    <price>
+        30.00
+    </price>
+
+    <quantity>
+        50
+    </quantity>
+
+</product>

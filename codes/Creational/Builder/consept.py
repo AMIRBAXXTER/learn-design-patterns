@@ -1,6 +1,18 @@
 from abc import ABC, abstractmethod
 
 
+# Product
+class Product:
+
+    def __init__(self):
+        self.a = None
+        self.b = None
+        self.c = None
+
+    def __str__(self):
+        return f"Product= {self.a}, {self.b}, {self.c}"
+
+
 # Abstract Builder
 class BaseBuilder(ABC):
     def __init__(self):
@@ -46,18 +58,6 @@ class Director:
 
     def create_product(self, a, b, c):
         self.builder.set_a(a).set_b(b).set_c(c)
-
-
-# Product
-class Product:
-
-    def __init__(self):
-        self.a = None
-        self.b = None
-        self.c = None
-
-    def __str__(self):
-        return f"Product= {self.a}, {self.b}, {self.c}"
 
 
 # Client Code
