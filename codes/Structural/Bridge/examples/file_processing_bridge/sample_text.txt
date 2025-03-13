@@ -1,0 +1,2 @@
+این یک فایل متنی نمونه است که شامل متن فارسی و انگلیسی است.
+This is a sample text file with both English and Persian content.

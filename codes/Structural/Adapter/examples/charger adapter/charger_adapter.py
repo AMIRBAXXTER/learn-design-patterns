@@ -5,6 +5,7 @@ class UniversalCharger:
     """
     Defines a common interface for charging phones, regardless of their specific port types.
     """
+
     def charge(self):
         pass
 
@@ -14,6 +15,7 @@ class LightningPort:
     """
     Represents phones with a Lightning port (e.g., iPhone).
     """
+
     def lightning_charge(self):
         return "Charging iPhone with Lightning port."
 
@@ -22,6 +24,7 @@ class MicroUSBPort:
     """
     Represents phones with a Micro-USB port (e.g., older Android devices).
     """
+
     def micro_usb_charge(self):
         return "Charging Android phone with Micro-USB port."
 
@@ -30,6 +33,7 @@ class USBTypeCPort:
     """
     Represents phones with a USB Type-C port (e.g., modern Android devices).
     """
+
     def usb_type_c_charge(self):
         return "Charging device with USB Type-C port."
 
@@ -39,6 +43,7 @@ class LightningToUniversalAdapter(UniversalCharger):
     """
     Adapter for phones with a Lightning port to use a universal charger.
     """
+
     def __init__(self, phone: LightningPort):
         self.phone = phone
 
@@ -50,6 +55,7 @@ class MicroUSBToUniversalAdapter(UniversalCharger):
     """
     Adapter for phones with a Micro-USB port to use a universal charger.
     """
+
     def __init__(self, phone: MicroUSBPort):
         self.phone = phone
 
@@ -61,6 +67,7 @@ class USBTypeCToUniversalAdapter(UniversalCharger):
     """
     Adapter for phones with a USB Type-C port to use a universal charger.
     """
+
     def __init__(self, phone: USBTypeCPort):
         self.phone = phone
 

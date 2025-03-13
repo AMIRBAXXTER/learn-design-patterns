@@ -1,0 +1,6 @@
+{
+  "timestamp": "2025-03-12T23:29:47.126140",
+  "source_file": "sample_text.txt",
+  "target_file": "text_file_log.json",
+  "file_size": 125
+}
