@@ -1,4 +1,7 @@
 from abc import ABC, abstractmethod
+from blessings import Terminal
+
+t = Terminal()
 
 
 # Component
@@ -15,10 +18,10 @@ class FileSystemItem(ABC):
         pass
 
     def add(self, item: "FileSystemItem"):
-        print(f"Cannot add {item.name} to {self.__class__.__name__}")
+        print(t.red(f"Cannot add {item.name} to {self.__class__.__name__}"))
 
     def remove(self, item: "FileSystemItem"):
-        print(f"Cannot remove {item.name} from {self.__class__.__name__}")
+        print(t.red(f"Cannot remove {item.name} from {self.__class__.__name__}"))
 
 
 # Leaf -> a simple component
@@ -31,7 +34,7 @@ class File(FileSystemItem):
         return self.size
 
     def display(self, indent=0):
-        print(" " * indent + f"File: {self.name} ({self.size} bytes)")
+        print(t.green(" " * indent + f"File: {self.name} ({self.size} bytes)"))
 
 
 # Composite -> a complex component that can have children
@@ -47,13 +50,10 @@ class Folder(FileSystemItem):
         self.children.remove(item)
 
     def get_size(self):
-        total_size = 0
-        for child in self.children:
-            total_size += child.get_size()
-        return total_size
+        return sum(child.get_size() for child in self.children)
 
     def display(self, indent=2):
-        print(" " * indent + f"Folder: {self.name}")
+        print(f'{t.red(" " * indent + "-")} {t.blue(f"Folder: {self.name}")}')
         for child in self.children:
             child.display(indent + 2)
 
